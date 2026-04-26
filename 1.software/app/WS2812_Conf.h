@@ -1,0 +1,37 @@
+#ifndef WS2812_CONF_H
+#define WS2812_CONF_H
+
+#include "WS2812_Type.h"
+
+#define WS2812_USE_SPI 1
+
+#if  !WS2812_USE_SPI
+#define WS2812_DIN           PA29
+#define WS2812_GPTMR         3
+#define WS2812_GPTMR_CHANNLE 3
+
+#define WS2812_DMA         HPM_HDMA
+#define WS2812_DMA_CHANNLE (0U)
+#define WS2812_DMAMUX      HPM_DMAMUX
+#define WS2812_DMA_IRQ     IRQn_HDMA
+#else
+#define WS2812_SPI         HPM_SPI1
+#define WS2812_SPI_CLCOK   clock_spi1
+#define WS2812_DIN         IOC_PAD_PA29     /* SPI MOSI */
+#endif
+
+#define WS2812_LED_CONNECT WS2812_CONNECT_LINE
+
+#if WS2812_LED_CONNECT == WS2812_CONNECT_LINE
+#define WS2812_LED_NUM 1
+#elif WS2812_LED_CONNECT == WS2812_CONNECT_MATRIX
+#define WS2812_LED_COL 8 // 行
+#define WS2812_LED_ROW 32 // 列
+#define WS2812_LED_NUM (WS2812_LED_COL * WS2812_LED_ROW)
+#elif WS2812_LED_CONNECT == WS2812_CONNECT_3D
+#define WS2812_LED_COL   5 // 行
+#define WS2812_LED_ROW   5 // 列
+#define WS2812_LED_LAYER 5 // 层
+#define WS2812_LED_NUM   (WS2812_LED_COL * WS2812_LED_ROW * WS2812_LED_LAYER)
+#endif
+#endif // WS2812_CONF_H

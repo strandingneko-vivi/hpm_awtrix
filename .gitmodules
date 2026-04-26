@@ -1,0 +1,9 @@
+[submodule "1.software/app/3rd-party/CherrySH"]
+	path = 1.software/app/3rd-party/CherrySH
+	url = https://github.com/cherry-embedded/CherrySH.git
+[submodule "1.software/app/3rd-party/CherryUSB"]
+	path = 1.software/app/3rd-party/CherryUSB
+	url = https://github.com/cherry-embedded/CherryUSB.git
+[submodule "1.software/app/3rd-part/HPM_WS2812"]
+	path = 1.software/app/3rd-party/HPM_WS2812
+	url = https://github.com/HalfSweet/HPM_WS2812.git
